@@ -24,21 +24,18 @@ function clearInput() {
 }
 
 // Calulate button function
-calculate.addEventListener('click', function () {    
+calculate.addEventListener('click', function () {   
+    let incValue = income.value;
     const addExpenses = parseFloat(food.value) + parseFloat(rent.value) + parseFloat(cloth.value);
-    const restBalance = parseFloat(income.value) - parseFloat(addExpenses);    
+    const restBalance = parseFloat(incValue) - parseFloat(addExpenses);    
     // Negative Number Error Handling
-    if (food.value < 0 || rent.value < 0 || cloth.value < 0 || income.value < 0) {
-        alert("Please enter a valid number!")        
+    if (food.value < 0 || rent.value < 0 || cloth.value < 0 || incValue < 0) {
+        alert("Please enter a valid positive number!");        
     }
-    else {
+    else  {
         // Expense greater than income error handling
-        if (addExpenses > income.value) {
-            alert("Please Re-check you income");
-            // food.value = "";
-            // rent.value = "";
-            // cloth.value = "";
-            // income.value = "";
+        if (addExpenses > incValue) {
+            alert(`Your total expenses ${addExpenses} exceeded your income!!`);            
             clearInput();
         }     
         else {
@@ -48,18 +45,19 @@ calculate.addEventListener('click', function () {
     }    
 })
 // Save button function
-save.addEventListener('click', function () {  
+save.addEventListener('click', function () { 
+    let balanceInner = balance.innerText;
     const percentage = parseFloat(rate.value) / 100;   
     const saveTotal = parseFloat(income.value) * parseFloat(percentage);  
 
-    if (balance.innerText < saveTotal) {
-        alert("you have exceded your limit");
+    if (balanceInner < saveTotal) {
+        alert(`your don't have sufficient balance to save ${saveTotal}`);
         clearInput();
     }   
     else {
     saveAmount.innerText = saveTotal;   
-    const remain = parseFloat(balance.innerText) - saveAmount.innerText;
-    remainingBalance.innerText = remain; 
+    const balanceLeft = parseFloat(balanceInner) - saveAmount.innerText;
+    remainingBalance.innerText = balanceLeft; 
     }
 })
 
