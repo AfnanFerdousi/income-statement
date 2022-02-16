@@ -16,11 +16,15 @@ const remainingBalance = document.getElementById("remaining-balance");
 
 // Clear input function
 function clearInput() {
-    food.value = "";
-    rent.value = "";
-    cloth.value = "";
-    income.value = "";
-    rate.value = "";
+    food.value = 0;
+    rent.value = 0;
+    cloth.value = 0;
+    income.value = 0;
+    rate.value = 0;
+    totalExpense.innerText = 0;
+    balance.innerText = 0;
+    saveAmount.innerText = 0;
+    remainingBalance.innerText = 0;
 }
 
 // Calulate button function

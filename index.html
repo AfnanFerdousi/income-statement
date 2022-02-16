@@ -21,18 +21,18 @@
             <div class="col-md-6">
                 <div class="mt-5 text-center bg-danger bg-opacity-10 p-4 rounded">
                 <h3 class="">Income</h3>
-                <h5 class="my-md-4 ">Income:  <input type="number" id="income"></h5>
+                <h5 class="my-md-4 ">Income:  <input type="number" min="0" value="0" id="income"></h5>
                 <h3 class="my-md-3 ">Expenses</h3>
-                <h5 class="d-block my-4">Food: <input type="number" id="food"></h5>
-                <h5 class="d-block my-4">Rent: <input type="number" id="rent"></h5>
-                <h5 class="d-block my-4">Cloth: <input type="number" id="cloth"></h5>
+                <h5 class="d-block my-4">Food: <input type="number" min="0" value="0" id="food"></h5>
+                <h5 class="d-block my-4">Rent: <input type="number" min="0" value="0" id="rent"></h5>
+                <h5 class="d-block my-4">Cloth: <input type="number" min="0" value="0" id="cloth"></h5>
                 <button class="btn btn-info px-5 py-2 my-2 text-white fw-bold" id="calculate">CALCULATE</button>
 
                 <h4 class="my-4">Total Expenses: <span id="total-expense">0</span></h4>
                 <h4 class="my-4">Balance: <span id="balance">0</span></h4>
 
                 
-                <h5 class="my-4">Rate: <input type="number" class="w-50" id="rate"> %</h5>
+                <h5 class="my-4">Rate: <input type="number" min="0" value="0" class="w-50" id="rate"> %</h5>
                 <button class="btn btn-info px-5 py-2 my-2 text-white fw-bold" id="save">SAVE</button>
                 
 
