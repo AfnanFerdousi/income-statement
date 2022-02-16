@@ -24,13 +24,31 @@ function clearInput() {
 }
 
 // Calulate button function
-calculate.addEventListener('click', function () {   
+calculate.addEventListener('click', function () { 
+    let foodValue = food.value;
+    let rentValue = rent.value;
+    let clothValue = cloth.value;
     let incValue = income.value;
     const addExpenses = parseFloat(food.value) + parseFloat(rent.value) + parseFloat(cloth.value);
     const restBalance = parseFloat(incValue) - parseFloat(addExpenses);    
     // Negative Number Error Handling
-    if (food.value < 0 || rent.value < 0 || cloth.value < 0 || incValue < 0) {
-        alert("Please enter a valid positive number!");        
+    if (foodValue < 0 || rentValue < 0 || clothValue < 0 || incValue < 0) {
+        if (foodValue < 0) {
+            alert("Please enter a valid positive number in the FOOD input field!");
+            clearInput();
+        }
+        else if (rentValue < 0) {
+            alert("Please enter a valid positive number in the RENT input field!");
+            clearInput();
+        }
+        else if (clothValue < 0 ) {
+            alert("Please enter a valid positive number in the CLOTH input field!");
+            clearInput();
+        }
+        else {
+            alert("Please enter a valid positive number in the INCOME input field!");
+            clearInput();
+        }
     }
     else  {
         // Expense greater than income error handling
@@ -46,8 +64,9 @@ calculate.addEventListener('click', function () {
 })
 // Save button function
 save.addEventListener('click', function () { 
+    let rateValue = rate.value;
     let balanceInner = balance.innerText;
-    const percentage = parseFloat(rate.value) / 100;   
+    const percentage = parseFloat(rateValue) / 100;   
     const saveTotal = parseFloat(income.value) * parseFloat(percentage);  
 
     if (balanceInner < saveTotal) {
@@ -55,9 +74,15 @@ save.addEventListener('click', function () {
         clearInput();
     }   
     else {
-    saveAmount.innerText = saveTotal;   
-    const balanceLeft = parseFloat(balanceInner) - saveAmount.innerText;
-    remainingBalance.innerText = balanceLeft; 
+        if (rateValue < 0) {
+            alert("Please enter a valid positive number in the RATE input field!");
+            clearInput();
+        }
+        else {
+            saveAmount.innerText = saveTotal;   
+            const balanceLeft = parseFloat(balanceInner) - saveAmount.innerText;
+            remainingBalance.innerText = balanceLeft;
+        }     
     }
 })
 
