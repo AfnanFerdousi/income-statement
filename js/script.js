@@ -19,11 +19,22 @@ document.getElementById("calculate").addEventListener('click', function () {
     }
 
     else {
-    const addExpenses = parseFloat(food.value) + parseFloat(rent.value) + parseFloat(cloth.value);
-    totalExpense.innerText = addExpenses;
+        // Expense greater than income error handling
+        if (totalExpense > income) {
+            alert("Please Re-check you income");
+            food.value = "";
+            rent.value = "";
+            cloth.value = "";
+            income.value = "";
+        }     
+        else {
+            const addExpenses = parseFloat(food.value) + parseFloat(rent.value) + parseFloat(cloth.value);
+            totalExpense.innerText = addExpenses;
     
-    const restBalance = parseFloat(income.value) - parseFloat(addExpenses);
-    balance.innerText = restBalance;
+            const restBalance = parseFloat(income.value) - parseFloat(addExpenses);
+            balance.innerText = restBalance;            
+        }
+    
     }    
 })
 
